@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>phillies rss</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css" media="all" type="text/css" />
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="http://www.google.com/jsapi?key=ABQIAAAAmxMYgNtSrDpyF48ifd6gcxQI9Jt6a9B-inqN8EhbSaEwAY3r1RQlozVK3oh2ktvWUMKkJbplvHT9Fg"></script>
+<script>
+ 
+    google.load("feeds", "1");
+
+function OnLoad() {
+  // Create a feed control
+  var feedControl = new google.feeds.FeedControl();
+
+  // Add feeds.    
+  feedControl.addFeed("http://sports.yahoo.com/mlb/teams/phi/rss.xml", "Yahoo Sports");
+  feedControl.addFeed("http://zozone.mlblogs.com/atom.xml", "The Zo Zone");
+  feedControl.addFeed("http://www.thefightins.com/feed/", "TheFightins");  
+  feedControl.addFeed("http://feeds.feedburner.com/sportsblogs/thegoodphight.xml", "The Good Fight");
+  feedControl.addFeed("http://twitter.com/statuses/user_timeline/2089951.rss", "PhillyPhillies Tweets");
+  feedControl.addFeed("http://partner.mlb.com/partnerxml/gen/news/rss/phi.xml", "Official MLB Phillies News");
+  
+  
+  
+feedControl.setLinkTarget(google.feeds.LINK_TARGET_BLANK);         
+  feedControl.setNumEntries(10);
+  // Draw it.
+  feedControl.draw(document.getElementById("content"));
+}
+
+google.setOnLoadCallback(OnLoad);
+</script>
+
+</head>
+
+<body>
+<header>
+	<h1>Phillies RSS News</h1>
+	<div class="arrow-left"></div>
+	<div class="arrow-right"></div>
+</header>
+
+<div id="content"></div>
+
+
+
+
+
+</body>
+</html>
